@@ -2,18 +2,20 @@
   "compilerOptions": {
     "outDir": "./dist/",
     "noImplicitAny": true,
-    // "module": "ESNext",
-    "module": "es6",
+    "module": "ESNext",
     "target": "es5",
-    "jsx": "react",
+    "jsx": "react-jsx",
     "allowJs": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
-  // "ts-node": {
-  //   "compilerOptions": {
-  //     "module": "CommonJS"
-  //   }
-  // }
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
 }
