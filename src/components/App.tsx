@@ -1,5 +1,4 @@
 import React from "react";
-
 import classes from './App.module.scss';
 
 export const App = () => {
@@ -11,7 +10,9 @@ export const App = () => {
       <div>
         {'Hello World'}
       </div>
-      {count}
+      <span className={classes.value}>
+        {count}
+      </span>
       <button
         className={classes.button}
         onClick={() => setCount(c => c + 1)}

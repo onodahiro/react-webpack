@@ -13,8 +13,8 @@ module.exports = (IS_DEV, template) => {
   if (!IS_DEV) {
     plugins.push(new ProgressPlugin(progressLog))
     plugins.push(new MiniCssExtractPlugin({
-      filename: 'css/[name].[contenthash].css',
-      chunkFilename: 'css/[name].[contenthash].css',
+      filename: 'css/[name].[contenthash:8].css',
+      chunkFilename: 'css/[name].[contenthash:8].css',
     }))
   };
 

@@ -6,7 +6,14 @@ module.exports = (IS_DEV) => ({
       test: /\.s[ac]ss$/i,
       use: [
         IS_DEV ? 'style-loader' : MiniCssExtractPlugin.loader,
-        'css-loader',
+        {
+          loader: 'css-loader',
+          options: {
+            modules: {
+              localIdentName: IS_DEV ? '[path][name]__[local]' : '[hash:base64:8]',
+            },
+          },
+        },
         'sass-loader',
       ],
     },

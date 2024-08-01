@@ -9,7 +9,7 @@ module.exports = (env) => {
     entry: path.resolve(__dirname, 'src', 'index.tsx'),
     output: path.resolve(__dirname, 'build'),
     html: path.resolve(__dirname, 'public', 'index.html'),
-    directory: path.join(__dirname, 'public'),
+    public: path.resolve(__dirname, 'public'),
   };
 
 
@@ -29,7 +29,7 @@ module.exports = (env) => {
     devtool: IS_DEV && 'inline-source-map',
     devServer:
       IS_DEV ?
-      require('./config/webpack/webpackDevServer')(PATHS.directory, PORT) :
+      require('./config/webpack/webpackDevServer')(PATHS.public, PORT) :
       undefined,
   }
 }
