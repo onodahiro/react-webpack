@@ -4,4 +4,5 @@ module.exports = (directory, PORT) => ({
   },
   open: true,
   port: PORT,
+  historyApiFallback: true,
 });

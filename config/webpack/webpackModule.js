@@ -22,5 +22,13 @@ module.exports = (IS_DEV) => ({
       use: 'ts-loader',
       exclude: /node_modules/,
     },
+    {
+      test: /\.(png|jpg|jpeg|gif)$/i,
+      type: 'asset/resource',
+    },
+    {
+      test: /\.svg$/,
+      use: ['@svgr/webpack'],
+    }
   ],
 });

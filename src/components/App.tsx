@@ -1,9 +1,9 @@
-import React from "react";
+import React, { Suspense } from "react";
+import { Outlet } from "react-router-dom";
 import classes from './App.module.scss';
 
 export const App = () => {
-  const [count, setCount] = React.useState<number>(0)
-  console.log(classes);
+  const [count, setCount] = React.useState<number>(0);
 
   return (
     <div>
@@ -17,6 +17,9 @@ export const App = () => {
         className={classes.button}
         onClick={() => setCount(c => c + 1)}
       >increment</button>
+      <Suspense fallback="Loading...">
+        <Outlet/>
+      </Suspense>
     </div>
   );
 }
