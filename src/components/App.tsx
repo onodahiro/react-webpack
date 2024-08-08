@@ -1,9 +1,9 @@
-import React, { Suspense } from "react";
+import { Suspense, useState } from "react";
 import { Outlet } from "react-router-dom";
 import classes from './App.module.scss';
 
 export const App = () => {
-  const [count, setCount] = React.useState<number>(0);
+  const [count, setCount] = useState<number>(0);
 
   return (
     <div>

@@ -2,6 +2,7 @@ const path = require('path');
 
 module.exports = (env) => {
   const IS_DEV = env.mode === 'development';
+  const IS_SERVE = env.WEBPACK_SERVE;
   const MODE = env.mode ?? 'development';
   const PORT = env.port ?? 8000;
   const ANALYZER = env.analyzer ?? false;
@@ -9,11 +10,9 @@ module.exports = (env) => {
   const PATHS = {
     entry: path.resolve(__dirname, 'src', 'index.tsx'),
     output: path.resolve(__dirname, 'build'),
-    html: path.resolve(__dirname, 'public', 'index.html'),
     public: path.resolve(__dirname, 'public'),
     src: path.resolve(__dirname, 'src'),
   };
-
 
   return {
     entry: PATHS.entry,
@@ -23,7 +22,7 @@ module.exports = (env) => {
       filename: '[name].[contenthash].js',
       clean: true,
     },
-    plugins: require('./config/webpack/webpackPlugins')(IS_DEV, PATHS.html, ANALYZER),
+    plugins: require('./config/webpack/webpackPlugins')(IS_DEV, ANALYZER, IS_SERVE, PATHS.public, PATHS.output),
     module: require('./config/webpack/webpackModule')(IS_DEV),
     resolve: {
       extensions: ['.tsx', '.ts', '.js'],
